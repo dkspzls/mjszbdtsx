@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 指明当前xml对应的Mapper -->
+<mapper namespace="com.gok.smartpark.sys.mapper.IUserMapper">
+    <select id="listCount" resultType="int">
+        select count(*) from sys_user;
+    </select>
+
+
+<!--    <delete id="deleteById">-->
+<!--        delete from sys_user where user_id = #{userId};-->
+<!--    </delete>-->
+
+<!--    <select id="selectById" resultType="User" parameterType="Integer">-->
+<!--        select * from sys_user where user_id = #{userId};-->
+<!--    </select>-->
+
+<!--    <insert id="insert">-->
+<!--        insert into sys_user(code,password,name,mobile,remark)-->
+<!--        values(#{code},#{password},#{name},#{mobile},#{remark})-->
+<!--    </insert>-->
+
+<!--    <update id="updateUserById">-->
+<!--&lt;!&ndash;        <selectKey keyProperty="userId"></selectKey>&ndash;&gt;-->
+<!--        update sys_user-->
+<!--        set code = #{code}, password = #{password}, name=#{name}, mobile =#{mobile},remark =#{remark},-->
+<!--        where user_id = #{userId}-->
+<!--    </update>-->
+
+</mapper>

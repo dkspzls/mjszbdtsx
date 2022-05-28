@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layuiAdmin 主页示例模板二</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="../layuiadmin/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="../layuiadmin/style/admin.css" media="all">
+  <script src="js/echarts.min.js"></script>
+  <style>
+    #pic1{
+      height: 146px;
+      margin: auto;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+      
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            当前车流
+            <span class="layui-badge layui-bg-blue layuiadmin-badge">天</span>
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+            <p class="layuiadmin-big-font">1,888</p>
+            <p>
+              当前总车流
+              <span class="layuiadmin-span-color">88万 <i class="layui-inline layui-icon layui-icon-flag"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm6 layui-col-md3">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            已收费用
+            <span class="layui-badge layui-bg-cyan layuiadmin-badge">月</span>
+          </div>
+          <div class="layui-card-body layuiadmin-card-list">
+            <p class="layuiadmin-big-font">33,555</p>
+            <p>
+              待收费用
+              <span class="layuiadmin-span-color">66,555 <i class="layui-inline layui-icon layui-icon-face-smile-b"></i></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="layui-col-sm-bzt layui-col-md-bzt">
+        <div id="pic1"></div>
+        <script>
+          var myCharts1 = echarts.init(document.getElementById('pic1'));
+          var option1 = {
+            backgroundColor: 'white',
+
+            title: {
+              text: '车位使用情况',
+              left: '',
+              top: 5,
+              textStyle: {
+                color: '#000'
+              }
+            },
+            legend:{
+              left:'right'
+            },
+            tooltip: {
+              trigger: 'item',
+              formatter: "{a} <br/>{b} : {d}%"
+            },
+
+            visualMap: {
+              show: false,
+              min: 500,
+              max: 600,
+              inRange: {
+                colorLightness: [0, 1]
+              }
+            },
+            series: [{
+              name: '车位使用情况',
+              type: 'pie',
+              clockwise: 'true',
+              startAngle: '0',
+              radius: '60%',
+              center: ['50%', '50%'],
+              data: [{
+                value: 50,
+                name: '已用车位50',
+                itemStyle: {
+                  normal: {
+                    color: 'rgb(255,192,0)',
+                    shadowBlur: '90',
+                    shadowColor: 'rgba(0,0,0,0.8)',
+                    shadowOffsetY: '30'
+                  }
+                }
+              },
+                {
+                  value: 60,
+                  name: '空车位60',
+                  itemStyle: {
+                    normal: {
+                      color: 'rgb(1,175,80)'
+                    }
+                  }
+                },
+
+              ],
+            }]
+          };
+          myCharts1.setOption(option1);
+        </script>
+        <script src="../layuiadmin/layui/layui.js"></script>
+        <script>
+          layui.config({
+            base: '../layuiadmin/' //静态资源所在路径
+          }).extend({
+            index: 'lib/index' //主入口模块
+          }).use(['index', 'sample']);
+        </script>
+        </div>
+
+      <div class="layui-col-sm12">
+        <div class="layui-card">
+          <div class="layui-card-header">
+            访问量
+            <div class="layui-btn-group layuiadmin-btn-group">
+              <a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-xs">去年</a>
+              <a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-xs">今年</a>
+            </div>
+          </div>
+          <div class="layui-card-body">
+            <div class="layui-row">
+              <div class="layui-col-sm8">
+                  <div class="layui-carousel layadmin-carousel layadmin-dataview" data-anim="fade" lay-filter="LAY-index-pagetwo">
+                    <div carousel-item id="LAY-index-pagetwo">
+                      <div><i class="layui-icon layui-icon-loading1 layadmin-loading"></i></div>
+                    </div>
+                  </div>
+              </div>
+              <div class="layui-col-sm4">
+                <div class="layuiadmin-card-list">
+                  <p class="layuiadmin-normal-font">月访问数</p>
+                  <span>同上期增长</span>
+                  <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                    <div class="layui-progress-bar" lay-percent="30%"></div>
+                  </div>
+                </div>
+                <div class="layuiadmin-card-list">
+                  <p class="layuiadmin-normal-font">月下载数</p>
+                  <span>同上期增长</span>
+                  <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                    <div class="layui-progress-bar" lay-percent="20%"></div>
+                  </div>
+                </div>
+                <div class="layuiadmin-card-list">
+                  <p class="layuiadmin-normal-font">月收入</p>
+                  <span>同上期增长</span>
+                  <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                    <div class="layui-progress-bar" lay-percent="25%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
